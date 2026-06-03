@@ -1,0 +1,28 @@
+**Date:** 2026-06-03
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 1 | What is the key term for devices that are connected together? | Network |
+| Task 2 | Who invented the World Wide Web? | Tim Berners-Lee |
+| Task 3 | What does the term "IP" stand for? | Internet Protocol |
+| Task 3 | What is each section of an IP address called? | Octet |
+| Task 3 | How many sections (in digits) does an IPv4 address have? | 4 |
+| Task 3 | What does the term "MAC" stand for? | Media Access Control |
+| Task 3 | Deploy the interactive lab and spoof your MAC address to access the site. What is the flag? | THM{YOU_GOT_ON_TRYHACKME} |
+| Task 4 | What protocol does ping use? | ICMP |
+| Task 4 | What is the syntax to ping 10.10.10.10? | ping 10.10.10.10 |
+| Task 4 | What flag do you get when you ping 8.8.8.8? | THM{I_PINGED_THE_SERVER} |
+
+## What I Learned:
+- A network is simply a collection of connected devices [citation:1]
+- The Internet is a giant network made up of many smaller networks [citation:2]
+- IP addresses identify devices logically and can change
+- MAC addresses are physical identifiers burned into network interfaces
+- MAC addresses can be spoofed (changed virtually) [citation:3]
+- Ping uses ICMP protocol to test connectivity between devices
+
+## Summary:
+Introduction to computer networking fundamentals including network definition, Internet history, device identification (IP and MAC addresses), and the ping/ICMP tool for connectivity testing.
