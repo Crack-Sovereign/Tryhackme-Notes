@@ -1,0 +1,27 @@
+**Date:** 2026-06-03
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 2 | What year was the first release of a Linux operating system? | 1991 |
+| Task 4 | If we wanted to output the text "TryHackMe", what would our command be? | echo TryHackMe |
+| Task 4 | What is the username of who you're logged in as? | tryhackme |
+| Task 5 | How many folders are there? | 4 |
+| Task 5 | Which directory contains a file? | folder4 |
+| Task 5 | What is the contents of this file? | Hello World! |
+| Task 5 | What is the path? | /home/tryhackme/folder4 |
+| Task 6 | Use grep on "access.log" to find the flag | THM{ACCESS} |
+| Task 7 | Run a command in the background operator? | & |
+| Task 7 | How to replace contents of "passwords" with "password123" | echo password123 > passwords |
+| Task 7 | How to add "tryhackme" to "passwords" keeping existing content | echo tryhackme >> passwords |
+
+## What I Learned:
+- Basic Linux commands (echo, whoami, ls, cd, cat, grep)
+- Linux filesystem navigation
+- Shell operators: & (background), > (overwrite), >> (append)
+- Searching inside files with grep
+
+## Summary:
+Linux fundamentals including basic commands, filesystem navigation, searching with grep, and shell operators.
