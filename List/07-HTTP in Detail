@@ -1,0 +1,51 @@
+**Date:** 2026-06-03
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 1 | What does HTTP stand for? | HyperText Transfer Protocol |
+| Task 1 | What does the S in HTTPS stand for? | Secure |
+| Task 1 | On the mock webpage there is an issue; clicking the padlock displays a popup alert with the flag. What is the challenge flag? | THM{INVALID_HTTP_CERT} |
+| Task 2 | What HTTP protocol is being used in the above example? | HTTP/1.1 |
+| Task 2 | What response header tells the browser how much data to expect? | Content-Length |
+| Task 3 | What method would be used to create a new user account? | POST |
+| Task 3 | What method would be used to update your email address? | PUT |
+| Task 3 | What method would be used to remove a photo you've uploaded? | DELETE |
+| Task 3 | What method would be used to view a news article? | GET |
+| Task 4 | What is the HTTP Status Code for "OK"? | 200 |
+| Task 4 | What is the HTTP Status Code for "Created"? | 201 |
+| Task 4 | What is the HTTP Status Code for "Moved Permanently"? | 301 |
+| Task 4 | What is the HTTP Status Code for "Found"? | 302 |
+| Task 4 | What is the HTTP Status Code for "Bad Request"? | 400 |
+| Task 4 | What is the HTTP Status Code for "Unauthorized"? | 401 |
+| Task 4 | What is the HTTP Status Code for "Forbidden"? | 403 |
+| Task 4 | What is the HTTP Status Code for "Not Found"? | 404 |
+| Task 4 | What is the HTTP Status Code for "Method Not Allowed"? | 405 |
+| Task 4 | What is the HTTP Status Code for "Internal Server Error"? | 500 |
+| Task 4 | What is the HTTP Status Code for "Not Implemented"? | 501 |
+| Task 4 | What is the HTTP Status Code for "Service Unavailable"? | 503 |
+| Task 5 | What request header tells the server what browser is making the request? | User-Agent |
+| Task 5 | What request header tells the server which website you want to access? | Host |
+| Task 5 | What response header tells the browser how long to store the content in its cache? | Cache-Control |
+| Task 5 | What response header tells the browser what type of data is being returned? | Content-Type |
+| Task 6 | What is the name of a small piece of data stored on your computer by a website? | Cookie |
+| Task 6 | What header is used to store cookies on a computer? | Set-Cookie |
+| Task 7 | Make a GET request to /room page | THM{YOU'RE_IN_THE_ROOM} |
+| Task 7 | Make a GET request to /blog with id=1 | THM{YOU_FOUND_THE_BLOG} |
+| Task 7 | Make a DELETE request to /user/1 | THM{USER_IS_DELETED} |
+| Task 7 | Make a PUT request to /user/2 with username=admin | THM{USER_HAS_UPDATED} |
+| Task 7 | Make a POST request to /login with username=thm and password=letmein | THM{HTTP_REQUEST_MASTER} |
+
+## What I Learned:
+- HTTP is the foundation of data communication on the web
+- HTTPS adds encryption via TLS/SSL to secure communication
+- HTTP methods: GET (retrieve), POST (create), PUT (update), DELETE (remove)
+- Status codes: 2xx success, 3xx redirection, 4xx client errors, 5xx server errors
+- Common request headers: Host, User-Agent, Cookie
+- Common response headers: Set-Cookie, Cache-Control, Content-Type
+- Cookies help servers remember who you are
+
+## Summary:
+Complete guide to HTTP/HTTPS fundamentals including URL structure, HTTP methods, status codes, request/response headers, cookies, and practical request-making exercises.
