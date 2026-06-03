@@ -1,9 +1,13 @@
-**تاریخ:** ۲۰۲۶-۰۶-۰۲
-**زمان تقریبی:** ۱۰ دقیقه
-**وضعیت:** Completed!
+**Date:** 2026-06-02
+**Status:** Completed
 
-("یاد گرفتم توی TryHackMe چطور ماشین مجازی رو شروع کنم و سوالات رو جواب بدم")  
-("تفاوت Attack box و VPN رو فهمیدم")  
+## Flags / Answers:
+- Task 1 Flag: `flag{connection_verified}`
 
-فلگ یعنی متن اثبات انجام کار.  
-فلگ این قسمت: `flag{connection_verified}`
+## What I learned:
+- How to start a virtual machine on TryHackMe
+- Difference between AttackBox and VPN connection
+- A flag is a piece of text that proves you completed a task
+
+## Summary:
+Basic introduction to the TryHackMe platform and how to interact with lab machines.
