@@ -1,0 +1,32 @@
+**Date:** 2026-06-03
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 1 | What does DNS stand for? | Domain Name System |
+| Task 2 | What is the maximum length of a subdomain? | 63 |
+| Task 2 | Which of the following characters cannot be used in a subdomain (3 b _ - )? | _ |
+| Task 2 | What is the maximum length of a domain name? | 253 |
+| Task 2 | What type of TLD is .co.uk? | ccTLD |
+| Task 3 | What type of record would be used to advise where to send email? | MX |
+| Task 3 | What type of record handles IPv6 addresses? | AAAA |
+| Task 4 | What field specifies how long a DNS record should be cached for? | TTL |
+| Task 4 | What type of DNS Server is usually provided by your ISP? | Recursive |
+| Task 4 | What type of server holds all the records for a domain? | Authoritative |
+| Task 5 | What is the CNAME of shop.website.thm? | shops.myshopify.com |
+| Task 5 | What is the value of the TXT record of website.thm? | THM{7012BBA60997F35A9516C2E16D2944FF} |
+| Task 5 | What is the numerical priority value for the MX record? | 30 |
+| Task 5 | What is the IP address for the A record of www.website.thm? | 10.10.10.10 |
+
+## What I Learned:
+- DNS is the phonebook of the internet - it translates domain names to IP addresses [citation:5]
+- Domain hierarchy: Root → TLD (.com) → Second-Level (example.com) → Subdomain (blog.example.com) [citation:1]
+- Maximum domain name length is 253 characters, each label max 63 characters [citation:2]
+- Different DNS record types serve different purposes: A (IPv4), AAAA (IPv6), CNAME (alias), MX (email), TXT (text data) [citation:4]
+- DNS resolution process: Local cache → Recursive server → Root servers → TLD server → Authoritative server [citation:6]
+- TTL (Time To Live) controls how long DNS records are cached
+
+## Summary:
+DNS fundamentals including domain hierarchy, record types (A, AAAA, CNAME, MX, TXT), and how DNS resolution works from local cache to authoritative servers.
