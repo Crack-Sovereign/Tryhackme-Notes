@@ -1,17 +1,17 @@
-تاریخ: ۲۰۲۶-۰۶-۰۲
-وضعیت: Completed!
+**Date:** 2026-06-02
+**Status:** Completed
 
-پرچم‌ها یا جواب‌های مهم:
-- سوال research room: Repeater, NTLM, Cron Jobs, Base 16, sha512crypt
-- سوال vulnerability page: CVE-2020-10385, CVE-2016-1240, CVE-2007-0017, CVE-2019-18634
-- سوال manual pages: -r, -l, -B, nc -l -p 12345
+## Flags / Answers:
+- Research room answers: Repeater, NTLM, Cron Jobs, Base 16, sha512crypt
+- Vulnerability page answers: CVE-2020-10385, CVE-2016-1240, CVE-2007-0017, CVE-2019-18634
+- Manual pages answers: -r, -l, -B, nc -l -p 12345
 
-چی یاد گرفتم:
-- تحقیق و OSINT چطور به جمع‌آوری اطلاعات کمک می‌کنه
-- از چه ابزارهایی برای جستجوی پیشرفته استفاده کنم
-- منابع عمومی چقدر می‌تونن اطلاعات بدهند
-- یاد گرفتم چطور CVEها رو پیدا و بررسی کنم
-- با دستورات لینوکس و manual pages بیشتر آشنا شدم
+## What I learned:
+- How OSINT and research help with information gathering
+- What tools to use for advanced searching
+- How much information public sources can provide
+- How to find and research CVEs
+- Linux commands and manual pages
 
-خلاصه اتاق:
-تحقیق و OSINT برای جمع‌آوری اطلاعات از منابع عمومی
+## Summary:
+Research and OSINT fundamentals for gathering information from public sources.
