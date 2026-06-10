@@ -44,4 +44,6 @@
 - Flag 3: Located in the Administrator's Documents folder
 
 ## Summary:
-This room targets a Windows 7 machine vulnerable to EternalBlue (MS17-010). Using Metasploit, I gained initial access via the SMB exploit, upgraded to a meterpreter shell, dumped NTLM hashes, cracked Jon's password, and found three flags in key system locations including the root directory, SAM database location, and administrator's documents.
+This room targets a Windows 7 machine vulnerable to EternalBlue (MS17-010).
+Using Metasploit, I gained initial access via the SMB exploit, upgraded to a meterpreter shell, dumped NTLM hashes, cracked Jon's password,
+and found three flags in key system locations including the root directory, SAM database location, and administrator's documents.
