@@ -1,0 +1,61 @@
+**Date:** 2026-06-14
+**Status:** In Progress (تا پایان escalate)
+
+## Answers - Task 2 (Recon):
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 2 | What port is Microsoft Remote Desktop (MSRDP) open on? | 3389 |
+Microsoft Windows-Based Terminal Server, which is associated with the Remote Desktop Protocol (RDP)
+| Task 2 | What service did nmap identify as running on port 8000? | Icecast |
+| Task 2 | What does Nmap identify as the hostname of the machine? | DARK-PC/Dark |
+
+## Answers - Task 3 (Gain Access):
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 3 | What is the Impact Score for this vulnerability? | 6.4 |
+According to https://www.cvedetails.com/cve/CVE-2004-1561/ scroll down till you see CVSS scores for CVE-2004-1561.
+| Task 3 | What is the CVE number for this vulnerability? | CVE-2004-1561 |
+| Task 3 | What is the full path for the exploitation module? | exploit/windows/http/icecast_header |
+| Task 3 | What is the only required setting which currently is blank? | RHOSTS |
+
+## Answers - Task 4 (Escalate):
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 4 | What's the name of the shell we have now? | meterpreter |
+| Task 4 | What user was running that Icecast process? | Dark | getuid.
+| Task 4 | What build of Windows is the system? | 7601 | sysinfo.
+| Task 4 | What is the architecture of the process we're running? | x64 | sysinfo,
+| Task 4 | What is the full path for the first returned exploit from local_exploit_suggester? | exploit/windows/local/bypassuac_eventvwr |
+For testing possible exploits you can use | run post/multi/recon/local_exploit_suggester |
+| Task 4 | After setting session, what option name do we need to set for listener IP? | LHOST |
+| Task 4 | What permission listed in getprivs allows us to take ownership of files? | SeTakeOwnershipPrivilege | getprivs.
+
+## What I Learned:
+
+**Reconnaissance**
+- Icecast streaming media server on port 8000 has a known vulnerability (CVE-2004-1561).
+- RDP runs on port 3389 and the hostname is DARK-PC.
+
+**Exploitation with Metasploit**
+- Used search icecast to find exploit/windows/http/icecast_header.
+- Set RHOSTS (target IP) and LHOST (tun0 IP) before running exploit
+  if your using Tryhackme attack machine you won't need to change the LHOST.
+- Gained initial meterpreter shell on the Windows 7 target.
+
+**Privilege Escalation Steps**
+1. Ran sysinfo to identify OS (Windows 7 Build 7601) and architecture (x64).
+2. Used post/multi/recon/local_exploit_suggester to find vulnerabilities.
+3. First returned exploit: bypassuac_eventvwr.
+4. Backgrounded session with background or CTRL+Z.
+5. Used exploit/windows/local/bypassuac_eventvwr.
+6. Set SESSION and LHOST options.
+7. After exploit, new meterpreter session opened with elevated privileges.
+8. getprivs showed SeTakeOwnershipPrivilege for taking ownership of files.
+
+## Summary:
+This room targets a Windows 7 machine with a vulnerable Icecast media server (CVE-2004-1561).
+Initial access gained via Metasploit's icecast_header exploit.
+Privilege escalation achieved using bypassuac_eventvwr local exploit, resulting in elevated privileges including SeTakeOwnershipPrivilege.
