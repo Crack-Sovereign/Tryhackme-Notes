@@ -35,7 +35,7 @@
 - After getting a regular shell, convert to meterpreter using `post/multi/manage/shell_to_meterpreter`
 - The SESSION option must be set to the current session ID
 - Dump password hashes using `hashdump` command
-- Crack NTLM hashes with John the Ripper or online tools
+- Crack NTLM hashes with Hashcat or online tools using hashcat giving it hash file and a wordlist.
 - Jon's hash `ffb43f0de35be4d9917ac0cc8ad57f8d` cracks to password `alqfna22`
 
 **Flag Locations**
