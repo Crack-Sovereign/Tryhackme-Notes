@@ -14,3 +14,4 @@
 | HTTP in Detail | 2026-06-03 | [یادداشت](List/07-HTTP%20in%20Detail) |
 | Nmap | 2026-06-08 | [یادداشت](List/08-Nmap) |
 | Blue | 2026-06-10 | [یادداشت](List/Blue) |
+| Ice | 2026-06-15 | [یادداشت](List/Ice) |
