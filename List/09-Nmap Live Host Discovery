@@ -1,0 +1,73 @@
+**Date:** 2026-06-17
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 2 | How many devices can see the ARP Request? (From computer1 to computer1 broadcast) | 4 |
+| Task 2 | Did computer6 receive the ARP Request? | N |
+| Task 2 | How many devices can see the ARP Request? (From computer4 broadcast) | 4 |
+| Task 2 | Did computer6 reply to the ARP Request? | Y |
+| Task 3 | What is the first IP address Nmap would scan if you provided 10.10.12.13/29 as your target? | 10.10.12.8 |
+| Task 3 | How many IP addresses will Nmap scan if you provide the range 10.10.0-255.101-125? | 6400 |
+| Task 4 | What is the type of packet that computer1 sent before the ping? | ARP Request |
+| Task 4 | What is the type of packet that computer1 received before being able to send the ping? | ARP Response |
+| Task 4 | How many computers responded to the ping request? | 1 |
+| Task 4 | What is the name of the first device that responded to the first ARP Request? | Router |
+| Task 4 | What is the name of the first device that responded to the second ARP Request? | computer5 |
+| Task 4 | Send another Ping Request. Did it require new ARP Requests? | N |
+| Task 5 | How many devices are you able to discover using ARP requests? | 3 |
+| Task 6 | What is the option required to tell Nmap to use ICMP Timestamp to discover live hosts? | -PP |
+| Task 6 | What is the option required to tell Nmap to use ICMP Address Mask to discover live hosts? | -PM |
+| Task 6 | What is the option required to tell Nmap to use ICMP Echo to discover live hosts? | -PE |
+| Task 7 | Which TCP ping scan does not require a privileged account? | TCP SYN Ping |
+| Task 7 | Which TCP ping scan requires a privileged account? | TCP ACK Ping |
+| Task 7 | What option do you need to add to Nmap to run a TCP SYN ping scan on the telnet port? | -PS23 |
+| Task 8 | We want Nmap to issue a reverse DNS lookup for all the possible hosts on a subnet. What option should we add? | -R |
+
+## What I Learned:
+
+**ARP Scanning (-PR)**
+- ARP (Address Resolution Protocol) is used to map IP addresses to MAC addresses on local networks
+- ARP requests are broadcasted and only reachable within the same subnet
+- ARP replies are sent directly to the requester, not broadcasted
+- This is the most reliable host discovery method when on the same network
+
+**ICMP Scanning**
+- **ICMP Echo (-PE)**: Standard ping scan using ICMP echo requests (type 8)
+- **ICMP Timestamp (-PP)**: Uses ICMP timestamp requests (type 13)
+- **ICMP Address Mask (-PM)**: Uses ICMP address mask requests (type 17)
+- Many firewalls block standard ping but allow timestamp or address mask
+
+**TCP Scanning**
+- **TCP SYN Ping (-PS)**: Sends SYN packet and waits for SYN/ACK response. Can be run without root privileges
+- **TCP ACK Ping (-PA)**: Sends ACK packet and waits for RST response. Requires privileged access
+- **Port Specification**: e.g., -PS23 for telnet port, -PS80 for HTTP port
+
+**UDP Scanning**
+- **UDP Ping (-PU)**: Sends UDP packet to specified port (e.g., -PU53 for DNS)
+- Less reliable than TCP/ICMP scanning because UDP is connectionless
+
+**Reverse-DNS Lookup**
+- Nmap performs reverse DNS lookups by default only for online hosts
+- Use `-R` flag to force reverse DNS lookup for all targets
+- Use `-n` flag to skip DNS resolution entirely
+
+**CIDR and Range Notation**
+- CIDR notation: /29 means 2^(32-29) = 8 IP addresses
+- The first IP in a CIDR range is always the network address
+- IP ranges can be specified with hyphen: 10.10.0-255.101-125 (256 * 25 = 6400 IPs)
+- Nmap will scan all combinations within specified ranges
+
+**ARP Request/Response Process**
+- Before sending a ping to an unknown IP, computer1 first broadcasts an ARP request
+- The target device responds with an ARP response containing its MAC address
+- After the ARP reply, the sending computer can then send the ICMP ping request
+- Once the ARP entry is cached, subsequent pings won't need new ARP requests
+
+## Summary:
+This room covered various host discovery techniques in Nmap: ARP scanning for local subnet discovery,
+ICMP echo/timestamp/address mask scans,
+TCP SYN/ACK scans, and UDP scans. Also covered target enumeration methods using CIDR notation and IP ranges,
+as well as reverse-DNS lookup options and ARP caching behavior.
