@@ -13,6 +13,6 @@
 | DNS in Detail | 2026-06-03 | [یادداشت](List/06-DNS%20in%20detail) |
 | HTTP in Detail | 2026-06-03 | [یادداشت](List/07-HTTP%20in%20Detail) |
 | Nmap | 2026-06-08 | [یادداشت](List/08-Nmap) |
-| Nmap Live Host Discovery | 2026-06-17 | [یادداشت](List/Nmap-Live-Host-Discovery) |
+| Nmap Live Host Discovery | 2026-06-17 | [یادداشت](List/09-Nmap%20Live%20Host%20Discovery) |
 | Blue | 2026-06-10 | [یادداشت](List/Blue) |
 | Ice | 2026-06-15 | [یادداشت](List/Ice) |
