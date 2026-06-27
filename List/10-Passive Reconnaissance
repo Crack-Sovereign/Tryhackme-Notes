@@ -1,0 +1,62 @@
+
+# Passive Reconnaissance
+
+**Date:** 2026-06-27
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 2 | You visit the Facebook page of the target company, hoping to get some of their employee names. What kind of reconnaissance activity is this? (A for active, P for passive) | P |
+| Task 2 | You ping the IP address of the company webserver to check if ICMP traffic is blocked. What kind of reconnaissance activity is this? (A for active, P for passive) | A |
+| Task 2 | You happen to meet the IT administrator of the target company at a party. You try to use social engineering to get more information about their systems and network infrastructure. What kind of reconnaissance activity is this? (A for active, P for passive) | A |
+| Task 3 | When was TryHackMe.com registered? | 20180705 |
+| Task 3 | What is the registrar of TryHackMe.com? | namecheap.com |
+| Task 3 | Which company is TryHackMe.com using for name servers? | cloudflare.com |
+| Task 4 | Check the TXT records of thmlabs.com. What is the flag there? | THM{a5b83929888ed36acb0272971e438d78} |
+| Task 5 | Lookup tryhackme.com on DNSDumpster. Under Services / Banners, which one has the highest count? | cloudflare |
+| Task 6 | According to Shodan.io, what is the first country in the world in terms of the number of publicly accessible Apache servers? | United States |
+| Task 6 | Based on Shodan.io, what is the 3rd most common port used for Apache? | 8080 |
+| Task 6 | Based on Shodan.io, what is the most common port used for nginx? | 80 |
+
+## What I Learned:
+
+**Passive vs Active Reconnaissance**
+- Passive Reconnaissance involves gathering information from publicly available sources without directly interacting with the target
+- Active Reconnaissance requires direct engagement with the target (e.g., pinging a server, social engineering)
+- Examples of passive recon include checking DNS records, reading news articles, and viewing social media pages
+
+**WHOIS**
+- WHOIS is a request and response protocol that follows the RFC 3912 specification
+- A WHOIS server listens on TCP port 43 for incoming requests
+- Provides information about domain registration: registrar, contact info, creation/update/expiration dates, and name servers
+- Command: `whois tryhackme.com`
+- TryHackMe.com was registered on 20180705, the registrar is namecheap.com, and the name servers are provided by cloudflare.com
+
+**nslookup and dig**
+- `nslookup` (Name Server Look Up) queries DNS servers for domain information
+- `dig` (Domain Information Groper) provides more advanced DNS queries and additional functionality
+- Used `nslookup -type=txt thmlabs.com` to retrieve the TXT record flag
+- Common query types: A (IPv4), AAAA (IPv6), MX (Mail Servers), TXT (Text records), CNAME (Canonical Name)
+
+**DNSDumpster**
+- Online tool used to discover subdomains that nslookup and dig cannot find on their own
+- Provides detailed DNS information in tables and graphs
+- Search for tryhackme.com revealed subdomains including www, blog, and remote
+- Under Services / Banners, cloudflare had the highest count
+
+**Shodan.io**
+- A search engine for connected devices and online services
+- Collects information about IP addresses, hosting companies, geographic locations, and server types
+- Can be used to find information about Apache servers, common ports, and exposed devices without directly connecting to the target
+
+**Key Takeaways**
+- All these tools and services rely on publicly available information and do not alert the target
+- Passive reconnaissance is an essential first step in the Unified Kill Chain for gathering intelligence about a target
+- Documentation of findings is critical for building effective attack strategies or defense measures
+
+## Summary:
+This room covered the fundamentals of passive reconnaissance using command-line tools (whois, nslookup, dig) and online services (DNSDumpster, Shodan.io).
+Gained practical experience in gathering publicly available information about domains and networks without direct interaction,
+including whois records, DNS queries, subdomain discovery, and service enumeration.
