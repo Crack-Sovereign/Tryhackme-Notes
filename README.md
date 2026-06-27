@@ -14,6 +14,6 @@
 | HTTP in Detail | 2026-06-03 | [یادداشت](List/07-HTTP%20in%20Detail) |
 | Nmap | 2026-06-08 | [یادداشت](List/08-Nmap) |
 | Nmap Live Host Discovery | 2026-06-17 | [یادداشت](List/09-Nmap%20Live%20Host%20Discovery) |
-| Passive Reconnaissance | 2026-06-27 | [یادداشت](List/Passive%20Reconnaissance) |
+| Passive Reconnaissance | 2026-06-27 | [یادداشت](List/10-Passive%20Reconnaissance) |
 | Blue | 2026-06-10 | [یادداشت](List/Blue) |
 | Ice | 2026-06-15 | [یادداشت](List/Ice) |
