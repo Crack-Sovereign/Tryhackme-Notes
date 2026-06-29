@@ -1,0 +1,70 @@
+**Date:** 2026-06-29
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 2 | Using Developer Tools, figure out the total number of questions. | 8 |
+| Task 3 | Which option would you use to set the size of the data carried by the ICMP echo request? | -s |
+| Task 3 | What is the size of the ICMP header in bytes? | 8 |
+| Task 3 | Does MS Windows Firewall block ping by default? (Y/N) | Y |
+| Task 3 | Deploy the VM and issue the command `ping -c 10 MACHINE_IP`. How many ping replies did you get back? | 10 |
+| Task 4 | In Traceroute A, what is the IP address of the last router/hop before reaching tryhackme.com? | 172.67.69.208 |
+| Task 4 | In Traceroute B, what is the IP address of the last router/hop before reaching tryhackme.com? | 104.26.11.229 |
+| Task 4 | In Traceroute B, how many routers are between the two systems? | 25 |
+| Task 5 | Use the telnet client to connect to the VM on port 80. What is the name of the running server? | Apache |
+| Task 5 | What is the version of the running server (on port 80 of the VM)? | 2.4.61 |
+| Task 6 | Use Netcat to connect to the VM port 21. What is the version of the running server? | 0.17 |
+
+## What I Learned:
+
+**Active vs Passive Reconnaissance**
+- Active reconnaissance involves directly interacting with the target system, which can leave traces in logs (IP addresses, timestamps)
+- Unlike passive methods that rely on publicly available information, active techniques provide more detailed and specific data but are more intrusive
+- Requires proper authorization before conducting any active probing
+
+**Web Browser as Recon Tool**
+- Web browsers connect to targets on common ports (TCP 80 for HTTP, TCP 443 for HTTPS)
+- Developer Tools (Ctrl+Shift+I on PC, Option+Command+I on Mac) allow inspection of JavaScript files, cookies, and site structure
+- Browser extensions like Wappalyzer identify technologies used on websites
+
+**Ping (ICMP)**
+- Ping uses ICMP protocol to test reachability of remote systems
+- ICMP header size is 8 bytes
+- `-s` option sets the size of data carried by the ICMP echo request
+- Microsoft Windows Firewall blocks ping by default
+- Command: `ping -c 10 [IP]` sends 10 ICMP echo requests
+
+**Traceroute**
+- Tracks the path packets take from your system to the destination host
+- Identifies each router (hop) along the route and counts the total number
+- Useful for mapping network infrastructure and troubleshooting connectivity
+- Traceroute A: Last hop before tryhackme.com was 172.67.69.208
+- Traceroute B: Last hop was 104.26.11.229 with 26 routers between systems
+
+**Telnet**
+- Telnet protocol (default port 23) allows remote command-line interface access
+- Transmits all data in cleartext, making it insecure; SSH is the secure alternative
+- Can be used to grab service banners and identify running services
+- Connect to port 80 and issue `GET / HTTP/1.1` to reveal web server details
+
+**Netcat (nc)**
+- Versatile tool supporting both TCP and UDP protocols
+- Can function as either client or server
+- Used for port scanning, banner grabbing, and setting up basic connections
+- Connect to FTP port 21 to identify server version
+
+**Key Takeaways**
+- Active reconnaissance is essential for gathering detailed intelligence but must be conducted with authorization and stealth in mind
+- Even simple tools like web browsers can be powerful reconnaissance assets when used with developer tools and extensions
+- Understanding the OSI model and network fundamentals (TCP/IP, ports, protocols) is crucial for effective reconnaissance
+
+## Summary:
+This room covered active reconnaissance techniques using web browsers, ping, traceroute, telnet, and Netcat.
+Direct interaction with targets allows detailed information gathering but leaves traces that can be detected.
+Practical exercises involved using : 
+browser developer tools,
+performing ICMP ping sweeps,
+tracing network routes, and connecting to services
+to identify server versions and service banners.
