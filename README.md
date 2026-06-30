@@ -15,5 +15,6 @@
 | Nmap | 2026-06-08 | [یادداشت](List/08-Nmap) |
 | Nmap Live Host Discovery | 2026-06-17 | [یادداشت](List/09-Nmap%20Live%20Host%20Discovery) |
 | Passive Reconnaissance | 2026-06-27 | [یادداشت](List/10-Passive%20Reconnaissance) |
+| Content Discovery | 2026-06-30 | [یادداشت](List/11-Content%20Discovery) |
 | Blue | 2026-06-10 | [یادداشت](List/Blue) |
 | Ice | 2026-06-15 | [یادداشت](List/Ice) |
