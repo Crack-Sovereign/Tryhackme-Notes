@@ -1,0 +1,66 @@
+**Date:** 2026-06-30
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer | Command |
+|------|----------|--------|---------|
+| Task 1 | What is the Content Discovery method that begins with M? | Manually | - |
+| Task 1 | What is the Content Discovery method that begins with A? | Automated | - |
+| Task 1 | What is the Content Discovery method that begins with O? | OSINT | - |
+| Task 2 | What is the directory in the robots.txt that isn't allowed to be viewed by web crawlers? | staff-portal | `curl http://[IP]/robots.txt` |
+| Task 3 | What framework did the favicon belong to? | cgiirc | `curl -s http://[IP]/favicon.ico | md5sum` |
+| Task 4 | What is the path of the secret area that can be found in the sitemap.xml file? | /s3cr3t-area | `curl http://[IP]/sitemap.xml` |
+| Task 5 | What is the flag value from the X-FLAG header? | THM{HEADER_FLAG} | `curl -v http://[IP]` |
+| Task 6 | What is the flag from the framework's administration portal? | THM{CHANGE_DEFAULT_CREDENTIALS} | `curl http://[IP]/admin/` |
+| Task 7 | What Google dork operator can be used to only show results from a particular site? | site: | - |
+| Task 8 | What online tool can be used to identify what technologies a website is running? | Wappalyzer | - |
+| Task 9 | What is the website address for the Wayback Machine? | https://archive.org/web/ | - |
+| Task 10 | What is Git? | Version control system | - |
+| Task 11 | What URL format do Amazon S3 buckets end in? | .s3.amazonaws.com | - |
+| Task 12 | What is the name of the directory beginning "/mo…." that was discovered? | /monthly | `ffuf -w /usr/share/wordlists/dirb/common.txt -u http://[IP]/FUZZ` |
+| Task 12 | What is the name of the log file that was discovered? | /development.log | `ffuf -w /usr/share/wordlists/dirb/common.txt -u http://[IP]/FUZZ -e .log` |
+
+## What I Learned:
+
+**What is Content Discovery?**
+Content discovery is the process of finding hidden or private content on a web server that isn't immediately visible. This can include files, videos, images, backups, or hidden features like admin panels, older site versions, or staff-only pages. There are three main methods: Manual, Automated, and OSINT.
+
+**Manual Discovery — Robots.txt**
+The robots.txt file tells search engines which pages they are and aren't allowed to show on search engine results. It can also ban specific search engines from crawling the website altogether. This file often contains areas that website owners don't want to be discovered, making it a great starting point for penetration testers.
+
+**Manual Discovery — Favicon**
+The favicon is a small icon displayed in the browser's address bar or tab. When frameworks are used to build a website, a leftover favicon can give clues about what framework is in use. The OWASP favicon database allows you to lookup MD5 hashes of favicon.ico files to identify the framework. The hash for the challenge was f276b19aabcb4ae8cda4d22625c6735f, which matched the cgiirc framework.
+
+**Manual Discovery — Sitemap.xml**
+Unlike robots.txt, the sitemap.xml file lists every file the website owner wishes to be listed on search engines. These can contain areas of the website that are difficult to navigate to, or old webpages that are still working behind the scenes.
+
+**Manual Discovery — HTTP Headers**
+When a web server responds to a request, it sends HTTP headers that can reveal useful details like the web server software and programming language used. The -v (verbose) flag in curl outputs these headers. The X-FLAG header contained the flag for this task.
+
+**Manual Discovery — Framework Stack**
+Framework Stack involves identifying the framework a website uses (often from favicon or page source) and then locating its website to learn more. The documentation page may reveal paths to an administration portal with default credentials (admin:admin).
+
+**OSINT — Google Hacking / Dorking**
+Google Dorking uses Google's advanced search features to find information that might be hard to reach otherwise. The site: operator restricts results to a particular domain.
+
+**OSINT — Wappalyzer**
+Wappalyzer is an online tool and browser extension that identifies what technologies a website uses, including frameworks, CMS, payment processors, and version numbers.
+
+**OSINT — Wayback Machine**
+The Wayback Machine is a historical archive of websites maintained by the Internet Archive, allowing you to see how websites looked in the past and uncover old pages.
+
+**OSINT — GitHub**
+Git is a version control system that tracks changes to files in a project. Public GitHub repositories may contain source code, passwords, or other sensitive information.
+
+**OSINT — S3 Buckets**
+Amazon S3 buckets are storage services that can be misconfigured to allow public access. The URL format is {name}.s3.amazonaws.com. Common automation methods use company names followed by terms like -assets, -www, -public, etc.
+
+**Automated Discovery**
+Automated discovery tools send hundreds or thousands of requests to a web server to check if files or directories exist. Common tools include ffuf, dirb, and gobuster. The hidden directory discovered was /monthly and the log file was /development.log.
+
+## Summary:
+This room covered content discovery techniques including manual methods (robots.txt, favicon, sitemap.xml, HTTP headers, framework stack),
+OSINT (Google dorking, Wappalyzer, Wayback Machine, GitHub, S3 buckets), 
+and automated discovery using directory brute-forcing tools.
+The practical exercise revealed hidden content including a staff portal, secret area, HTTP header flag, administration portal with default credentials, and automated discovery of /monthly directory and /development.log file.
