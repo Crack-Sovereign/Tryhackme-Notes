@@ -1,0 +1,51 @@
+**Date:** 2026-07-01
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer | Command |
+|------|----------|--------|---------|
+| Task 1 | What is the note you found when viewing the user's account who had more than $1 million? | THM{Found.the.Millionare!} | - |
+| Task 1 | If you don't get access to more roles but can view the data of another user, what type of privilege escalation is this? | Horizontal | - |
+| Task 2 | What is the flag on the admin user's dashboard? | THM{Account.confusion.FTW!} | - |
+| Task 3 | It looks like an attacker tried to perform a brute-force attack, what is the IP of the attacker? | 203.0.113.45 | - |
+| Task 3 | Looks like they were able to gain access to an account! What is the username associated with that account? | admin | - |
+| Task 3 | What action did the attacker try to do with the account? List the endpoint the accessed. | /supersecretadminstuff | - |
+
+## What I Learned:
+
+**IAAA Model**
+The IAAA model is a framework for thinking about how users and their actions are verified on applications. The four components are:
+
+- **Identity** — the unique account (e.g., user ID/email) that represents a person or service
+- **Authentication** — proving that identity (passwords, OTP, passkeys)
+- **Authorisation** — what that identity is allowed to do
+- **Accountability** — recording and alerting on who did what, when, and from where
+
+**A01: Broken Access Control**
+Broken Access Control happens when the server doesn't properly enforce who can access what on every request. A common occurrence of this is IDOR (Insecure Direct Object Reference): if changing an ID (like `?id=7` → `?id=6`) lets you see or edit someone else's data, access control is broken.
+
+- Horizontal privilege escalation: accessing data of another user with the same role
+- Vertical privilege escalation: jumping to admin-only actions
+
+**A07: Authentication Failures**
+Authentication Failures happen when an application can't reliably verify or bind a user's identity. Common issues include:
+
+- Username enumeration
+- Weak/guessable passwords (no lockout/rate limits)
+- Logic flaws in the login/registration flow
+- Insecure session or cookie handling
+
+**A09: Logging & Alerting Failures**
+When applications don't record or alert on security-relevant events, defenders can't detect or investigate attacks. Good logging underpins accountability (being able to prove who did what, when, and from where). In practice, failures look like:
+
+- Missing authentication events
+- Vague error logs
+- No alerting on brute-force or privilege changes
+- Short retention
+- Logs stored where attackers can tamper with them
+
+## Summary:
+This room covers three OWASP Top 10:2025 
+categories: Broken Access Control (A01), Authentication Failures (A07), and Logging & Alerting Failures (A09) through the lens of the IAAA model.
+Practical exercises demonstrate horizontal privilege escalation via IDOR, weak authentication leading to account takeover, and identifying attacker activity through logging failures.
