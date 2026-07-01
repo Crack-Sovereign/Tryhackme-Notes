@@ -1,0 +1,54 @@
+
+# OWASP Top 10 2025: Application Design Flaws
+
+**Date:** 2026-07-01
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer | Command |
+|------|----------|--------|---------|
+| Task 2 | What's the flag from the error message? | THM{V3RB0S3_3RR0R_L34K} | Burp Suite (Intruder) |
+| Task 3 | Send a POST request with `data=debug` to `/api/process` | THM{SUPPLY_CH41N_VULN3R4B1L1TY} | `curl -X POST http://[IP]:5003/api/process -H "Content-Type: application/json" -d '{"data":"debug"}'` |
+| Task 4 | What's the flag from the encrypted document? | THM{CRYPTO_FAILURE_H4RDCOD3D_K3Y} | - |
+| Task 5 | What's the flag? | THM{1NS3CUR3_D35IGN_4SSUMPT10N} | - |
+
+## What I Learned:
+
+**AS02: Security Misconfigurations**
+Security Misconfiguration happens when systems are deployed with unsafe defaults, incomplete settings, or exposed services.
+These are not code bugs but mistakes in how the environment is set up. Common issues include:
+
+- Default credentials left unchanged
+- Unnecessary services exposed to the internet
+- Misconfigured cloud storage permissions
+- Verbose error messages exposing stack traces or system details
+- Unrestricted API access
+
+**Example:** In the User Management API, sending a non-numeric user_id triggered a verbose error that revealed the flag directly in the stack trace.
+
+**AS03: Software Supply Chain Failures**
+This category covers vulnerabilities introduced through third-party dependencies, libraries, CI/CD pipelines, and unverified software updates. One compromised dependency can compromise the entire system.
+
+**Example:** The application imported a vulnerable `vulnerable_utils.py` component. Sending a POST request with `data=debug` to `/api/process` triggered the vulnerable library and revealed the flag.
+
+**AS04: Cryptographic Failures**
+Cryptographic failures occur when encryption is used incorrectly or not at all. This includes weak algorithms, hard-coded keys, or poor key management. These flaws allow attackers to access sensitive data that should be private.
+
+**Example:** The application stored an encrypted document with a hard-coded decryption key embedded in the source code.
+
+**AS06: Insecure Design**
+Insecure design refers to fundamental architectural flaws that are built into the system from the start.
+These flaws stem from skipped threat modelling, weak business logic, or flawed assumptions about user behaviour. Unlike implementation bugs, these flaws cannot be patched—they require rethinking the design itself.
+
+Key issues include:
+- Missing guardrails for AI/LLM systems
+- Weak business logic controls
+- Test or debug bypasses left in production
+- No consistent abuse-case review or AI threat modelling
+
+## Summary:
+This room covers four OWASP Top 10:2025 categories related to application design flaws:
+Security Misconfiguration (A02), Software Supply Chain Failures (A03), Cryptographic Failures (A04), and Insecure Design (A06). 
+Understanding these design-level vulnerabilities is crucial for building secure applications from the ground up.
+Practical exercises demonstrated verbose error message leaks, vulnerable third-party library exploitation, weak cryptographic key handling, and insecure architectural patterns.
