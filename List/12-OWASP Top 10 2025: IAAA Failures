@@ -5,12 +5,13 @@
 
 | Task | Question | Answer | Command |
 |------|----------|--------|---------|
-| Task 1 | What is the note you found when viewing the user's account who had more than $1 million? | THM{Found.the.Millionare!} | - |
-| Task 1 | If you don't get access to more roles but can view the data of another user, what type of privilege escalation is this? | Horizontal | - |
-| Task 2 | What is the flag on the admin user's dashboard? | THM{Account.confusion.FTW!} | - |
-| Task 3 | It looks like an attacker tried to perform a brute-force attack, what is the IP of the attacker? | 203.0.113.45 | - |
-| Task 3 | Looks like they were able to gain access to an account! What is the username associated with that account? | admin | - |
-| Task 3 | What action did the attacker try to do with the account? List the endpoint the accessed. | /supersecretadminstuff | - |
+| Task 2 | What does IAAA stand for? | Identification, Authentication, Authorisation, Accountability |
+| Task 3 | If you don't get access to more roles but can view the data of another users, what type of privilege escalation is this? | Horizontal |
+| Task 3 | What is the note you found when viewing the user's account who had more than $1 million? | THM{Found.the.Millionare!} |
+| Task 4 | What is the flag on the admin user's dashboard? | THM{Account.confusion.FTW!} |
+| Task 5 | It looks like an attacker tried to perform a brute-force attack, what is the IP of the attacker? | 203.0.113.45 |
+| Task 5 | Looks like they were able to gain access to an account! What is the username associated with that account? | admin |
+| Task 5 | What action did the attacker try to do with the account? List the endpoint the accessed. | /supersecretadminstuff |
 
 ## What I Learned:
 
