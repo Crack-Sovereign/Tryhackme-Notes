@@ -1,0 +1,81 @@
+**Date:** 2026-07-05
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 1 | What does SQL stand for? | Structured Query Language |
+| Task 2 | What controls a database? | DBMS |
+| Task 2 | What is the grid-like structure called? | table |
+| Task 3 | Which statement retrieves data? | SELECT |
+| Task 3 | Which clause retrieves data from multiple tables? | UNION |
+| Task 3 | Which statement adds data? | INSERT |
+| Task 4 | What character ends an SQL query? | ; |
+| Task 5 | What is the flag for level 1? | THM{SQL_INJECTION_3840} |
+| Task 6 | What is the flag for level 2? | THM{SQL_INJECTION_9581} |
+| Task 7 | What is the flag for level 3? | THM{SQL_INJECTION_1093} |
+| Task 8 | What is the final flag? | THM{SQL_INJECTION_MASTER} |
+| Task 9 | Which protocol can be used to exfiltrate data? | DNS |
+| Task 10 | Name a method to prevent SQL Injection. | Prepared Statements |
+
+## What I Learned:
+
+**SQL Injection Overview**
+SQL Injection (SQLi) is a web security vulnerability that allows attackers to interfere with database queries.
+It occurs when user input is not properly validated or sanitized, allowing malicious SQL code to be injected and executed.
+SQLi remains one of the most critical vulnerabilities in web security and is part of the OWASP Top 10.
+
+**Database Fundamentals**
+- **SQL (Structured Query Language)**: A language for managing and manipulating relational databases
+- **DBMS (Database Management System)**: The software that controls and manages databases (e.g., MySQL, PostgreSQL)
+- **Table**: The grid-like structure in databases that stores data in rows and columns
+- **;**: The character that ends an SQL query
+
+**Basic SQL Commands**
+- **SELECT**: Statement used to retrieve data from a database
+- **INSERT**: Statement used to add new data to a database
+- **UNION**: Clause used to combine results from multiple SELECT statements
+
+**Types of SQL Injection in this Room:**
+
+**1. In-Band SQLi (Level 1)**
+In-band injection is the most common type, where the attacker uses the same channel for both the attack and data retrieval.
+The flag for this level was `THM{SQL_INJECTION_3840}`.
+
+**2. Blind SQLi - Authentication Bypass (Level 2)**
+In this type, the application doesn't display the actual data but reveals information through different responses.
+Authentication bypass is achieved by injecting SQL code that makes the login query always return true. The flag for this level was `THM{SQL_INJECTION_9581}`.
+
+**3. Blind SQLi - Boolean Based (Level 3)**
+Boolean-based blind injection works by sending SQL queries that evaluate to either TRUE or FALSE and observing differences in the application's response.
+The flag for this level was `THM{SQL_INJECTION_1093}`.
+
+**4. Blind SQLi - Time Based (Final Flag)**
+Time-based blind injection involves injecting SQL code that causes the database to wait (delay) for a specified time (e.g., `SLEEP(5)`) before responding.
+If the response is delayed, it indicates the condition is true. The final flag was `THM{SQL_INJECTION_MASTER}`.
+
+**5. Out-of-Band SQLi (Task 9)**
+Out-of-band injection occurs when the attacker uses a different channel (like DNS or HTTP requests) to receive data from the database.
+DNS is a protocol that can be used to exfiltrate data.
+
+**Prevention Techniques (Task 10)**
+- **Prepared Statements (Parameterized Queries)**: The most effective way to prevent SQL Injection by separating SQL logic from user input
+- **Input Validation and Sanitization**: Validating and sanitizing all user input before using it in queries
+- **Escaping Special Characters**: Escaping characters like `'` and `;` to prevent them from breaking the SQL query
+- **Least Privilege**: Applying least privilege to database accounts to limit what an attacker can do
+- **Disabling Verbose Error Messages**: Not displaying detailed error messages that could give attackers information about the database
+
+**Key Takeaways**
+- SQLi occurs when user input is not validated
+- Attackers can manipulate SQL queries
+- Blind SQLi relies on true/false or time delays
+- UNION-based SQLi is used to extract large data sets
+- Prepared Statements are the most reliable defense
+
+## Summary:
+This room provided a comprehensive overview of SQL Injection vulnerabilities,
+covering database fundamentals, SQL commands,
+and various SQLi attack types including In-Band, Blind (Boolean and Time-based), and Out-of-Band.
+Practical exercises demonstrated authentication bypass, data extraction, and time-based detection.
+The key takeaway is that SQL Injection occurs due to unvalidated user input and can be prevented primarily through the use of prepared statements and proper input validation.
