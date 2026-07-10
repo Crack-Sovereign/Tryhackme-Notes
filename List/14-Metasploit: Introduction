@@ -1,0 +1,59 @@
+**Date:** 2026-07-10
+**Status:** Completed
+
+## Answers:
+
+| Task | Question | Answer |
+|------|----------|--------|
+| Task 2 | What is the name of the code taking advantage of a flaw on the target system? | Exploit |
+| Task 2 | What is the name of the code that runs on the target system to achieve the attacker's goal? | Payload |
+| Task 2 | What are self-contained payloads called? | Singles |
+| Task 2 | Is "windows/x64/pingback_reverse_tcp" among singles or staged payload? | Singles |
+| Task 3 | How would you search for a module related to Apache? | search apache |
+| Task 3 | Who provided the auxiliary/scanner/ssh/ssh_login module? | todb |
+| Task 4 | How would you set the LPORT value to 6666? | set LPORT 6666 |
+| Task 4 | How would you set the global value for RHOSTS to 10.10.19.23? | setg RHOSTS 10.10.19.23 |
+| Task 4 | What command would you use to clear a set payload? | unset PAYLOAD |
+| Task 4 | What command do you use to proceed with the exploitation phase? | exploit |
+
+## What I Learned:
+
+**Metasploit Framework Overview**
+Metasploit is the most widely used exploitation framework that supports all phases of a penetration testing engagement,
+from information gathering to post-exploitation. It has two versions: Metasploit Pro (commercial GUI) and Metasploit Framework (open-source command-line).
+The main interface is msfconsole, which provides access to various modules.
+
+**Main Components of Metasploit**
+The framework consists of modules categorized by function:
+- **Auxiliary**: Tools for scanning, crawling, and fuzzing
+- **Encoders**: Encode exploits and payloads to bypass antivirus
+- **Evasion**: Modules designed to avoid detection
+- **Exploits**: Code that leverages a vulnerability to compromise a system
+- **NOPs**: No operation codes used as buffer in exploits
+- **Payloads**: Code that runs on the target system after successful exploitation. Payloads are divided into:
+  - **Singles**: Self-contained payloads (add user, launch notepad.exe) that don't need to download additional components
+  - **Stagers**: Set up connection channel between Metasploit and target; small in size
+  - **Stages**: Downloaded by stagers; larger payloads
+- **Post**: Modules used after gaining access to a system
+
+**Msfconsole Commands**
+- **search [term]**: Find modules related to a specific term
+- **info [module]**: Get detailed information about a module
+- **set [PARAMETER] [VALUE]**: Configure parameters like RHOSTS, RPORT, LHOST, LPORT
+- **setg [PARAMETER] [VALUE]**: Set global parameters that apply to all modules
+- **unset [PARAMETER]**: Clear a set parameter
+- **exploit / run**: Launch the configured module
+- **background** or **Ctrl+Z**: Background current session
+- **sessions -i [ID]**: Interact with a specific session
+
+**Key Takeaways**
+- Exploits take advantage of vulnerabilities; payloads execute actions after exploitation
+- The syntax to differentiate single and staged payloads: underscore (_) indicates single, slash (/) indicates staged
+- Always check required parameters with `show options` before running an exploit
+
+## Summary:
+This room provided an introduction to the Metasploit Framework,
+covering main components (exploits, payloads, auxiliary modules), navigation of msfconsole,
+and working with modules. Practical exercises demonstrated searching for modules, setting parameters (both local and global),
+clearing configurations, and launching exploits. The key distinction between singles (self-contained) and staged payloads was emphasized,
+along with essential commands for effective framework usage.
