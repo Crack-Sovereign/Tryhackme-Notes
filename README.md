@@ -20,5 +20,6 @@
 | OWASP Top 10 2025: Application Design Flaws | 2026-07-01 | [یادداشت](List/12-OWASP%20Top%2010%202025%3A%20Application%20Design%20Flaws) |
 | OWASP Top 10 2025: Insecure Data Handling | 2026-07-01 | [یادداشت](List/12-OWASP%20Top%2010%202025%3A%20Insecure%20Data%20Handling) |
 | SQL Injection | 2026-07-05 | [یادداشت](List/13-SQL%20Injection) |
+| Metasploit: Introduction | 2026-07-10 | [یادداشت](List/14-Metasploit%3A%20Introduction) |
 | Blue | 2026-06-10 | [یادداشت](List/Blue) |
 | Ice | 2026-06-15 | [یادداشت](List/Ice) |
