@@ -58,4 +58,5 @@
 - Practical scan results: Xmas scan showed 999 open/filtered (no response), SYN scan showed 5 open ports, FTP anonymous login succeeded
 
 ## Summary:
-Nmap is a network scanner for host discovery, port scanning, service/OS detection, and vulnerability detection. This room covered scan types (SYN, TCP, UDP, NULL, FIN, Xmas, ICMP), NSE scripts (Lua, categories like intrusive), firewall evasion, timing templates, and practical scanning.
+Nmap is a network scanner for host discovery, port scanning, service/OS detection, and vulnerability detection.
+This room covered scan types (SYN, TCP, UDP, NULL, FIN, Xmas, ICMP), NSE scripts (Lua, categories like intrusive), firewall evasion, timing templates, and practical scanning.
